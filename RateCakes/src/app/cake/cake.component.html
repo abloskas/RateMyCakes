@@ -1,0 +1,8 @@
+<div class="show-cake">
+  <p>{{cakeToShow.name}}</p>
+  <img src="{{ cakeToShow.image }}" alt="{{ cakeToShow.name}}">
+</div>
+<div class="rating" *ngFor="let rating of cakeToShow.rating">
+  <p>Rating: {{rating.rating}}</p>
+  <p>Comment: {{rating.comment}}</p>
+</div>

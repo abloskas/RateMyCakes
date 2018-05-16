@@ -1,0 +1,41 @@
+<h1 style="text-align: center;">{{title}}</h1>
+<div class="wrapper">
+
+  <div class="create-cake" style="border: 2px solid black;">
+    <h3>Create a Cake!</h3>
+    <form (submit)="createCake()">
+      Cake: <input type="text" name="newCake.name" [(ngModel)]="newCake.name">
+      Image URL: <input type="text" name="newCake.image" [(ngModel)]="newCake.image">
+      <input type="submit" value="Create Cake!">
+  </form>
+  </div>
+
+  <div class="show" style="border: 3px dashed royalblue;">
+    <h2>List of Cakes</h2>
+      <div *ngFor="let cake of cakes">
+        <div style="border: 1px solid black;">
+            <p>{{cake.name}}</p>
+            <img style="height:150px; width: 150px;" class="cake-img" src="{{cake.image}}" alt="{{cake.name}}"(click)="showCakes(cake)">
+        </div>
+      <div class="rate-cake">
+          <form #cakeForm = 'ngForm' (submit)="rateCake(cake._id, cakeForm)">
+              <select class="select" name="rating" ngModel>
+                    <option selected="selected" value="5">5</option>
+                      <option value="4">4</option>
+                      <option value="3">3</option>
+                      <option value="2">2</option>
+                      <option value="1">1</option>
+              </select>
+              <textarea name="comment" ngModel>Type your comment here</textarea>
+              <input type="submit" value="Rate!">
+            </form>
+      </div>
+    </div>
+</div>
+
+
+<app-cake *ngIf="showCake" [cakeToShow]="showCake"></app-cake>
+
+
+
+</div>

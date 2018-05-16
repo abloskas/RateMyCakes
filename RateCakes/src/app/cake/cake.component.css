@@ -1,0 +1,10 @@
+.show-cake img{
+    width: 250px;
+    height: 250px;
+}
+.rating{
+    border: 2px dashed green;
+    width: 350px;
+    height: auto;
+
+}
